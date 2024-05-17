@@ -1,10 +1,10 @@
-var rooot = document.getElementById('root');
-var parentInp = document.createElement('input');
-var firstButton = document.createElement('button');
-var secondButton = document.createElement('button');
-var textMessage = document.createElement('p');
-var randomBgButton = document.createElement('button')
-var lastButton = document.createElement('button')
+const room = document.getElementById('root');
+let parentInp = document.createElement('input');
+let firstButton = document.createElement('button');
+let secondButton = document.createElement('button');
+let textMessage = document.createElement('p');
+let randomBgButton = document.createElement('button')
+let lastButton = document.createElement('button')
 parentInp.classList.add('texts');
 firstButton.innerText = 'Letters Count';
 firstButton.classList.add('letts');
@@ -14,27 +14,27 @@ secondButton.innerText = 'Words Count';
 lastButton.innerText = 'Sentences Count'
 randomBgButton.innerText = 'Generate Background';
 randomBgButton.classList.add('bgButton')
-document.body.append(rooot)
-rooot.append(parentInp, firstButton, secondButton, lastButton, randomBgButton, textMessage)
+document.body.append(room)
+room.append(parentInp, firstButton, secondButton, lastButton, randomBgButton, textMessage)
 firstButton.onclick = function () {
-    var val = parentInp.value.replace(/[^a-zA-Z]/g, "");
-    return textMessage.innerText = 'The texts letters count is' + ' ' + val.length
+    let val = parentInp.value.replace(/[^a-zA-Z]/g, "");
+     textMessage.innerText = 'The texts letters count is' + ' ' + val.length
 };
 secondButton.onclick = function () {
-    var inp = parentInp.value.trim()
-    var word = inp.split(/\s+/).filter(el => el !== "");
+    let inp = parentInp.value.trim()
+    let word = inp.split(/\s+/).filter(el => el !== "");
 
-    return textMessage.innerText = 'In entered text words counts are' + ' ' + word.length;
+    textMessage.innerText = 'In entered text words counts are' + ' ' + word.length;
 };
 lastButton.onclick = function () {
-    var sent = parentInp.value.trim()
-    var sentence = sent.split(/[.!?]+/).filter(elem => elem !== "");
-    return textMessage.innerText = 'The sentence count are' + ' ' + sentence.length
+    let sent = parentInp.value.trim()
+    let sentence = sent.split(/[.!?]+/).filter(elem => elem !== "");
+     textMessage.innerText = 'The sentence count are' + ' ' + sentence.length
 }
 randomBgButton.onclick = function () {
-    var r = Math.floor(Math.random() * 255);
-    var g = Math.floor(Math.random() * 255);
-    var b = Math.floor(Math.random() * 255);
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
     document.body.style.backgroundColor = `rgb(${r},${g},${b})`
-    console.log(r, g, b);
+    
 };
